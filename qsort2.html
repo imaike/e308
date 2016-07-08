@@ -1853,10 +1853,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
 
         function sendData() {
 
-            alert("send data called -3");
 
             var name = localStorage.getItem("respondentName");
             var response = localStorage.getItem("resultsAsString");
+
+            alert(name, response);
+
 
             //            var grayReview = JSON.parse(localStorage.getItem("grayReview"));
             //            var grayCardResults = grayReview.toString();
@@ -1887,13 +1889,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                 response: response
             }, {
                 success: function (responseObject5) {
-                    $(".success").show();
+                    // $(".success").show();
                     console.log("success");
                     $("#presortFinishButton").hide();
                     alert("ありがとうございました！ Please wait for the other students to finish.");
                 },
                 error: function (responseObject2, error) {
-                    $(".error").show();
+                    // $(".error").show();
                     console.log("error");
                     alert("エラーが発生しました！ Please try tapping the button twice again.");
                 }
