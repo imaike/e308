@@ -1620,7 +1620,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                 localStorage.removeItem("responseGrayState1");
                 localStorage.removeItem("responsePinkState1");
 
-                // console.log("tapped");
+                console.log("tapped");
 
                 sendData();
 
@@ -1631,21 +1631,28 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
 
             var tapped = false;
 
+            //            $("#finishButton").on("touchstart", function (e) {
+            //                if (!tapped) {
+            //                    tapped = setTimeout(function () {
+            //                        single_tap()
+            //                        tapped = null
+            //                    }, 300); //wait 300ms
+            //                } else {
+            //                    clearTimeout(tapped);
+            //                    tapped = null
+            //                    double_tap()
+            //                }
+            //                e.preventDefault()
+            //            });
+
+
             $("#finishButton").on("touchstart", function (e) {
-                if (!tapped) {
-                    tapped = setTimeout(function () {
-                        single_tap()
-                        tapped = null
-                    }, 300); //wait 300ms
-                } else {
-                    clearTimeout(tapped);
-                    tapped = null
-                    double_tap()
-                }
-                e.preventDefault()
+                console.log("button clicked");
+                double_tap();
             });
 
-            $("#finishButton, #textDiv").show();
+
+            // $("#finishButton, #textDiv").show();
 
 
             $('.pep').pep({
@@ -1833,7 +1840,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                     if (_.isEqual(positionCounts, arrayCheck37)) {
                         $("#finishButton, #textDiv").show();
                     } else {
-                        //  $("#finishButton, #textDiv").hide();
+                        $("#finishButton, #textDiv").hide();
                     };
                 }; // end switch
 
@@ -1846,7 +1853,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
 
         function sendData() {
 
-            // alert("send data called -3");
+            alert("send data called -3");
 
             var name = localStorage.getItem("respondentName");
             var response = localStorage.getItem("resultsAsString");
@@ -1880,13 +1887,13 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                 response: response
             }, {
                 success: function (responseObject5) {
-                    //$(".success").show();
+                    $(".success").show();
                     console.log("success");
                     $("#presortFinishButton").hide();
                     alert("ありがとうございました！ Please wait for the other students to finish.");
                 },
                 error: function (responseObject2, error) {
-                    // $(".error").show();
+                    $(".error").show();
                     console.log("error");
                     alert("エラーが発生しました！ Please try tapping the button twice again.");
                 }
