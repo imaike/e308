@@ -1,0 +1,383 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta charset="utf-8">
+
+    <!-- apple viewport standalone -->
+    <meta name="apple-mobile-web-app-capable" content="yes" />
+    <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <link rel="apple-touch-icon" sizes="76x76" href="images/touch-icon-ipad.png" />
+    <link rel="apple-touch-icon" sizes="152x152" href="images/touch-icon-ipad-retina.png">
+
+    <!-- iPad Non-Retina Portrait -->
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait)" href="images/apple-touch-startup-image-768x1004.png">
+    <!-- iPad Non-Retina Landscape -->
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: landscape)" href="images/apple-touch-startup-image-748x1024.png">
+    <!-- iPad Retina Portrait -->
+    <link rel="apple-touch-startup-image" media="(device-width: 768px) and (orientation: portrait) and (-webkit-device-pixel-ratio: 2)" href="images/apple-touch-startup-image-1536x2008.png">
+    <!-- iPad Retina Landscape -->
+    <link rel="apple-touch-startup-image" media="(device-width: 768px)  and (orientation: landscape) and (-webkit-device-pixel-ratio: 2)" href="images/apple-touch-startup-image-1496x2048.png">
+
+    <!-- load libraries -->
+    <script type="text/javascript" src="iscroll-lite.js"></script>
+    <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
+
+    <!-- initialize iscroll5  and page display fadeIn-->
+    <script type="text/javascript">
+        var myScroll;
+
+        function loaded() {
+            myScroll = new IScroll('#wrapper');
+        }
+        document.addEventListener('touchmove', function(e) {
+            e.preventDefault();
+        }, false);
+
+    </script>
+
+    <title>Ken-Q Mobile Client</title>
+
+    <style>
+        /*  *************** page specific styles*/
+        
+        p {
+            font-family: Georgia;
+        }
+        
+        #title {
+            display: block;
+            width: 100%;
+            font-size: 90px;
+            font-family: HelveticaNeue-CondensedBlack;
+            color: black;
+            text-align: left;
+            margin-left: 0px;
+        }
+        
+        #catchPhrase {
+            float: left;
+            font-size: 25px;
+            color: red;
+            font-family: HelveticaNeue-BoldItalic;
+            font-style: oblique;
+            margin-left: 0px;
+            margin-top: -80px;
+        }
+        
+        #infoText {
+            font-size: 24px;
+            margin-top: 10px;
+            margin-left: 2px;
+        }
+        
+        #heroDiv {
+            width: 100%;
+            height: 250px;
+        }
+        
+        #textBox {
+            position: relative;
+        }
+        
+        #copyright {
+            position: absolute;
+            left: 30px;
+            font-family: HelveticaNeue-CondensedBlack;
+            margin-bottom: 20px;
+        }
+        
+        .paraHeader {
+            color: black;
+            font-weight: bold;
+        }
+        
+        #imageHolder {
+            margin-left: -35px;
+            height: 300px;
+            margin-bottom: 10px;
+        }
+        
+        #imageHolder2 {
+            margin-left: -5px;
+            height: 300px;
+        }
+        
+        div.horizontal {
+            display: inline-block;
+            margin-right: 1px;
+        }
+        
+        div.horizontalLable {
+            display: inline-block;
+            width: 280px;
+        }
+        
+        .horizontalLabelText {
+            margin-left: 63px;
+        }
+        
+        .horizontalImage {
+            margin-left: 165px;
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+        
+        ol li .processList {
+            margin-bottom: 15px;
+        }
+        
+        ul {
+            /*         border: 3px solid red;*/
+        }
+        
+        img {
+            /*         border: 3px solid red;*/
+        }
+        /* *****************  end page specific styles*/
+        
+        body {
+            /* On modern browsers, prevent the whole page to bounce */
+            width: 100%;
+            height: 100%;
+            overflow: hidden;
+        }
+        
+        #wrapper {
+            position: relative;
+            margin-top: 20px;
+            height: 748px;
+            width: 1004px;
+            overflow: hidden;
+            margin-left: 10px;
+            /* Prevent native touch events on Windows */
+            -ms-touch-action: none;
+            /* Prevent the callout on tap-hold and text selection */
+            -webkit-touch-callout: none;
+            -webkit-user-select: none;
+            -moz-user-select: none;
+            -ms-user-select: none;
+            user-select: none;
+            /* Prevent text resize on orientation change, useful for web-apps */
+            -webkit-text-size-adjust: none;
+            -moz-text-size-adjust: none;
+            -ms-text-size-adjust: none;
+            -o-text-size-adjust: none;
+            text-size-adjust: none;
+        }
+        
+        #scroller {
+            position: absolute;
+            width: 100%;
+            margin-left: 0px;
+            /* Prevent elements to be highlighted on tap */
+            -webkit-tap-highlight-color: rgba(0, 0, 0, 0);
+            /* Put the scroller into the HW Compositing layer right from the start */
+            -webkit-transform: translateZ(0);
+            -moz-transform: translateZ(0);
+            -ms-transform: translateZ(0);
+            -o-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+        /* Nav menu styling */
+        
+        nav {
+            position: absolute;
+            bottom: 5px;
+            left: 240px;
+            border-spacing: 0px;
+            margin-top: 5px;
+        }
+        
+        nav a {
+            padding: 5px 15px 15px 15px;
+            text-align: center;
+            background-color: #1985c5;
+            border-top-left-radius: 5px;
+            border-top-right-radius: 5px;
+            border: 3px solid #1985c5;
+            margin-right: -4px;
+            margin-left: -4px;
+            text-decoration: none;
+        }
+        
+        nav a.selected {
+            background-color: white;
+            color: #1985c5;
+        }
+        
+        a {
+            color: #2d343c;
+            text-align: center;
+            font-weight: bold;
+            font-family: HelveticaNeue-CondensedBlack;
+        }
+        /* changes the color of the a links */
+        /*
+        
+        #delayContainer {
+            display: none
+        }
+*/
+
+    </style>
+
+
+</head>
+
+<body onload="loaded()">
+    <div id="notAnIpad"></div>
+    <div id="delayContainer">
+
+        <div id="wrapper">
+            <!--container for iscroll5 -->
+            <div id="scroller">
+                <div id="textBox">
+
+                    <div id="heroDiv">
+
+                        <div>
+                            <h1 id="title">Ken-Q Mobile Client</h1>
+                        </div>
+
+                    </div>
+                    <!-- end hero div -->
+
+
+
+                    <div id="infoText">
+
+                        <span></span>
+
+                        <h2> Thank you for agreeing to take this survey!</h2>
+
+
+                        <br>
+                        <br>
+
+
+
+                    </div>
+                    <!--end infotext div -->
+                </div>
+                <!--end textbox div -->
+            </div>
+            <!--end scroller for iscroll5 -->
+        </div>
+        <!--end wrapper for iscroll5-->
+
+
+        <nav>
+            <!--           <a style=" background-color: white; color: #1985c5;" href="information.html">Information</a>-->
+            <!--
+           <a href="controls.html" class="stay">Controls</a>
+<a href="statements.html" class="stay">Q Statements</a>
+-->
+            <a href="presort2.html" class="stay">Presort</a>
+            <!--
+            <a href="qsort.html" class="stay">Sort</a>
+            <a href="postsort.html" class="stay">Postsort</a>
+-->
+        </nav>
+    </div>
+    <!-- end fadeIn div -->
+
+    <script type="text/javascript">
+        $(document).ready(function() {
+
+            localStorage.setItem("state1", "私は、iPadがこの授業で良い学習環境作りに役立ったと思います");
+            localStorage.setItem("state2", "私たちは、iPadを使用したため、私はこの授業では、より簡単に概念を学びました");
+            localStorage.setItem("state3", "私は、iPadのため、私の他のクラスに比べて、このクラスの同級生からより多くを学びました");
+            localStorage.setItem("state4", "iPadは、私がそうでなければ学んでなかったであろうことは、このクラスで物事を学ぶために私を助けました");
+            localStorage.setItem("state5", "iPadを使用すると、それが簡単に私がクラスで使用される概念間の接続を分かるようようにしました");
+            localStorage.setItem("state6", " iPadを使用することで、学習の私の好ましい方法とよく一致しました");
+            localStorage.setItem("state7", "私は、このクラスで iPadを使用したため、 学ぶために私のやる気を引き出します");
+            localStorage.setItem("state8", "私は、このクラスで学んだのiPadのスキルが他のクラスで私を役に立つと思います");
+            localStorage.setItem("state9", "iPadを使用によって、私はもっとクラスの概念に集中することができた");
+            localStorage.setItem("state10", "iPadを使用によって、前のクラスセッションからの概念を覚えて私を助けました");
+            localStorage.setItem("state11", "私がiPadの使用によって、私の他のクラスよりも、このクラスではより多くに参加しました");
+            localStorage.setItem("state12", "iPadのSocrativeアプリを使用したから、より簡単に授業の概念について意見を表現することができた");
+            localStorage.setItem("state13", " iPadのSocrativeアプリを使用によって、他の生徒の意見を参照を見ることが面白かったです");
+            localStorage.setItem("state14", "フィードバックを与えるためのiPadを使用したのは、学生のプレゼンテーションより興味深いになった");
+            localStorage.setItem("state15", "Kahootのクイズは、コースの概念を学ぶために私を助けました");
+            localStorage.setItem("state16", "クラスでのiPadを使用するには、私は英語で話すことがより困難になります");
+            localStorage.setItem("state17", "私は授業中にソーシャルメディアアプリケーション（LINEやFacebook）にアクセスするためのiPadを使用していました");
+            localStorage.setItem("state18", "このクラスでのiPadを使用して貴重な授業時間を無駄にした");
+            localStorage.setItem("state19", "私はこのクラスのiPadのアプリを使用する方法を理解するのは困難でした");
+            localStorage.setItem("state20", "このクラスでのiPadを使用すると、コースの概念はさらに混乱製された");
+            localStorage.setItem("state21", "iPadを使って、自分の考えを表現することは困難でした");
+            localStorage.setItem("state22", "アプリ関連の材料は、他のクラスの材料とよく統合されていませんでした");
+            localStorage.setItem("state23", "教室の前に画面に表示される持つ私の意見は私の意見を表現するために、私はより消極製になった");
+            localStorage.setItem("state24", "授業中のiPadを使用している間、私は退屈になりました");
+            localStorage.setItem("state25", "iPadを使用しているとき、私は、他の学生の技術と同様に熟練していないので、私はぎこちない感じました");
+            localStorage.setItem("state26", "iPadを使ったため、私はコースの概念に集中するのは、より困難になりました");
+            localStorage.setItem("state27", "iPadを使ったため、教授と英語で話すことがより困難になります");
+            localStorage.setItem("state28", "iPadを使ったため、他の学生と英語で話すことがより困難になります");
+            localStorage.setItem("state29", " 私は理由のiPadの使用の授業中に英語を話すために私の能力にいくつかの信頼を失いました");
+            localStorage.setItem("state30", "授業中のiPadを使用すると、不便でした");
+
+
+            // Check to see if visitor is using an iPad
+            checkDevice();
+
+            // Check to see if Web App is saved to Homescreen
+
+
+            function checkDevice() {
+                var isiPad = navigator.userAgent.match(/iPad/i) != null;
+                console.log(isiPad);
+                if (isiPad === true) {
+                    checkiPadStandAlone();
+                } else {
+                    $('#delayContainer').css('display', 'none');
+                    $('#notAnIpad').css('background-color', '#fff').append('<a href="mailto:?subject=Install%20Ken-Q%20Mobile%20on%20your%20iPad&amp;body=Add%20this%20Web%20Application%20to%20your%20iPad%20by%20visiting:%20http://www.banasick.net/ken-qmobile07/information.html"><img src="images/non_ipad_message.png"/></a>');
+                    $("#notAnIpad").fadeIn(500);
+                }
+            };
+
+            function checkiPadStandAlone() {
+                if (window.navigator.standalone == false) {
+                    $('#delayContainer').css('display', 'none');
+                    $('#notAnIpad').css('background-color', '#fff').append('<img  src="images/add_to_homescreen.png"/>');
+                    $("#notAnIpad").fadeIn(500);
+                } else {
+                    $("#delayContainer").fadeIn(500);
+                };
+            };
+
+
+
+
+            // stay standalone
+            //https://github.com/mrmoses/jQuery.stayInWebApp
+            (function($) {
+                $.extend({
+                    stayInWebApp: function(b) {
+                        "standalone" in window.navigator && window.navigator.standalone && (b || (b = "a"), $("body").delegate(b, "touchstart", function(b) {
+                            if ($(this).attr("target") == void 0 || $(this).attr("target") == "" || $(this).attr("target") == "_self") {
+                                var c = $(this).attr("href");
+                                if (!c.match(/^http(s?)/g)) b.preventDefault(), self.location = c
+                            }
+                        }))
+                    }
+                })
+            })(jQuery);
+            $(function() {
+                $.stayInWebApp('a.stay');
+            });
+            // This use only links with the class stay.
+            // $(function() { $.stayInWebApp('a.stay');});
+            // end stay standalone
+        });
+
+    </script>
+
+    <script>
+
+
+    </script>
+
+</body>
+
+</html>
