@@ -22,10 +22,9 @@
         function loaded() {
             myScroll = new IScroll('#wrapper');
         }
-        document.addEventListener('touchmove', function(e) {
+        document.addEventListener('touchmove', function (e) {
             e.preventDefault();
         }, false);
-
     </script>
 
     <title>Post Sort Comments</title>
@@ -241,7 +240,6 @@
         #delayContainer {
             display: none
         }
-
     </style>
 
 
@@ -415,7 +413,7 @@
     <!-- end delay fadeIn container -->
 
     <script>
-        (function() {
+        (function () {
             $("#delayContainer").fadeIn(500);
 
             $("nav").hide();
@@ -493,32 +491,30 @@
         })();
 
 
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             var activeRadioValue = localStorage.getItem("activeRadio");
             switch (activeRadioValue) {
-                case "state41":
-                    break;
-                case "state39":
-                    break;
-                default: // state37
-//                  
+            case "state41":
+                break;
+            case "state39":
+                break;
+            default: // state37
+                //                  
             };
         });
-
     </script>
 
 
     <script>
-        var fireFinishPostsortButton = function() {
+        var fireFinishPostsortButton = function () {
 
             $('nav a:nth-child(2)').trigger('touchstart');
         };
 
-        $('#greenCardCommentBox, #pinkCardCommentBox, #grayCardCommentBox').on('input propertychange change', function() {
+        $('#greenCardCommentBox, #pinkCardCommentBox, #grayCardCommentBox').on('input propertychange change', function () {
             localStorage.setItem(this.name, this.value);　　　
         });
-
     </script>
 
 
@@ -526,10 +522,10 @@
     <script type="text/javascript">
         // stay standalone
         //https://github.com/mrmoses/jQuery.stayInWebApp
-        (function($) {
+        (function ($) {
             $.extend({
-                stayInWebApp: function(b) {
-                    "standalone" in window.navigator && window.navigator.standalone && (b || (b = "a"), $("body").delegate(b, "touchstart", function(b) {
+                stayInWebApp: function (b) {
+                    "standalone" in window.navigator && window.navigator.standalone && (b || (b = "a"), $("body").delegate(b, "touchstart", function (b) {
                         if ($(this).attr("target") == void 0 || $(this).attr("target") == "" || $(this).attr("target") == "_self") {
                             var c = $(this).attr("href");
                             if (!c.match(/^http(s?)/g)) b.preventDefault(), self.location = c
@@ -538,13 +534,12 @@
                 }
             })
         })(jQuery);
-        $(function() {
+        $(function () {
             $.stayInWebApp();
         });
         // This use only links with the class stay.
         // $(function() { $.stayInWebApp('a.stay');});
         // end stay standalone
-
     </script>
 
 

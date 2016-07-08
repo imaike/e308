@@ -33,16 +33,15 @@
         function loaded() {
             myScroll = new IScroll('#wrapper');
         }
-        document.addEventListener('touchmove', function(e) {
+        document.addEventListener('touchmove', function (e) {
             e.preventDefault();
         }, false);
-
     </script>
 
     <title>Ken-Q Mobile Client</title>
 
     <style>
-        /*  *************** page specific styles*/
+        /*  ***************  page specific styles*/
         
         .quickselect__more {
             position: relative;
@@ -337,7 +336,6 @@
             border: 1px solid #ccc;
             font-size: 20px;
         }
-
     </style>
 
 
@@ -450,23 +448,22 @@
 
     <!-- show / hide presorts according to persisted activeRadio -->
     <script type="text/javascript">
-        (function() {
+        (function () {
             $("#delayContainer").fadeIn(500);
 
         })();
-
     </script>
 
 
 
     <script type="text/javascript">
-        $(document).ready(function() {
+        $(document).ready(function () {
 
             var randomId = makeId();
             localStorage.setItem("randomId", randomId);
 
 
-            $("#presortFinishButton").on('touchstart', function() {
+            $("#presortFinishButton").on('touchstart', function () {
                 sendData();
             })
         });
@@ -518,13 +515,13 @@
                 ipadSocial: ipadSocial,
                 iphoneSocial: iphoneSocial
             }, {
-                success: function(responseObject2) {
+                success: function (responseObject2) {
                     //$(".success").show();
                     console.log("success");
                     $("#presortFinishButton").hide();
                     alert("ありがとうございました！");
                 },
-                error: function(responseObject2, error) {
+                error: function (responseObject2, error) {
                     // $(".error").show();
                     console.log("error");
                     alert("エラーが発生しました！");
@@ -540,7 +537,6 @@
                 text += possible.charAt(Math.floor(Math.random() * possible.length));
             return text;
         }
-
     </script>
 
 

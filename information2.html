@@ -212,6 +212,11 @@
             font-weight: bold;
             font-family: HelveticaNeue-CondensedBlack;
         }
+        
+        input {
+            width: 350px;
+            font-size: 25px;
+        }
         /* changes the color of the a links */
         /*
         
@@ -247,15 +252,12 @@
                     <div id="infoText">
 
                         <span></span>
-
-                        <h2> Thank you for agreeing to take this survey!</h2>
-
-
+                        <h2> Please enter your family name and given name in the box below (in English). Then tap the blue button below</h2>
+                        <form>
+                            <input type="text" name="respondentName" id="nameInput">
+                        </form>
                         <br>
                         <br>
-
-
-
                     </div>
                     <!--end infotext div -->
                 </div>
@@ -343,6 +345,21 @@
                     $("#delayContainer").fadeIn(500);
                 };
             };
+
+
+
+            //            $("#nameInput").on("change", function () {
+            //                var name = $(nameInput).val();
+            //                localStorage.setItem("respondentName", name);
+            //                console.log(name);
+            //            });
+
+
+            $('form input, form textarea').on('input propertychange change', function () {
+                var respondentName = $("#nameInput").val();
+                localStorage.setItem("respondentName", respondentName);
+                // console.log(respondentName);
+            });
 
 
 
