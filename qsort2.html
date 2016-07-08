@@ -26,6 +26,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
     <script type="text/javascript" src="jquery.pep.min.js"></script>
     <script type="text/javascript" src="lodash.js"></script>
     <script type="text/javascript" src="screenlog.min.js"></script>
+    <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 
 
 
@@ -1619,6 +1620,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                 localStorage.removeItem("responseGrayState1");
                 localStorage.removeItem("responsePinkState1");
 
+                // console.log("tapped");
+
                 sendData();
 
                 // $('nav a:nth-child(6)').trigger('touchstart'); // go to next page
@@ -1641,6 +1644,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                 }
                 e.preventDefault()
             });
+
+            $("#finishButton, #textDiv").show();
 
 
             $('.pep').pep({
@@ -1764,20 +1769,20 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                     both.card = statementIdNumber;
                     both.pos = qValue;
                     sortResults.push(both);
-                    console.log(JSON.stringify(sortResults));
+                    // console.log(JSON.stringify(sortResults));
                     localStorage.setItem("sortResults2", JSON.stringify(sortResults));
                 }); // end  each function of myCards
 
                 var getSortResults2 = JSON.parse(localStorage.getItem("sortResults2"));
                 var result = _.pluck(getSortResults2, 'pos');
                 var result2 = sortByName(sortResults);
-                console.log(JSON.stringify(result));
+                // console.log(JSON.stringify(result));
                 var positionCounts = _.countBy(result2, 'pos');
-                console.log(JSON.stringify(positionCounts)); // this works but clear!
+                // console.log(JSON.stringify(positionCounts)); // this works but clear!
                 var results = _.pluck(result2, 'pos');
                 localStorage.setItem("theResults", JSON.stringify(results));
                 var resultsAsString = results.toString();
-                console.log(JSON.stringify(resultsAsString));
+                // console.log(JSON.stringify(resultsAsString));
                 localStorage.setItem("resultsAsString", resultsAsString);
 
 
@@ -1828,7 +1833,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                     if (_.isEqual(positionCounts, arrayCheck37)) {
                         $("#finishButton, #textDiv").show();
                     } else {
-                        $("#finishButton, #textDiv").hide();
+                        //  $("#finishButton, #textDiv").hide();
                     };
                 }; // end switch
 
@@ -1870,6 +1875,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
             var ResponseObject5 = Parse.Object.extend("ResponseObject5");
             var responseObject5 = new ResponseObject5();
             responseObject5.save({
+                // respondent: name,
                 respondent: name,
                 response: response
             }, {
@@ -1877,12 +1883,12 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                     //$(".success").show();
                     console.log("success");
                     $("#presortFinishButton").hide();
-                    alert("ありがとうございました！");
+                    alert("ありがとうございました！ Please wait for the other students to finish.");
                 },
                 error: function (responseObject2, error) {
                     // $(".error").show();
                     console.log("error");
-                    alert("エラーが発生しました！");
+                    alert("エラーが発生しました！ Please try tapping the button twice again.");
                 }
             })
         }
