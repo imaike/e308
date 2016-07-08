@@ -1652,7 +1652,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
             });
 
 
-            // $("#finishButton, #textDiv").show();
+            $("#finishButton, #textDiv").show();
 
 
             $('.pep').pep({
@@ -1873,7 +1873,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                 success: function (responseObject5) {
                     // $(".success").show();
                     console.log("success");
-                    $("#presortFinishButton").hide();
+                    $("#finishButton, #textDiv").hide();
                     alert("ありがとうございました！ Please wait for the other students to finish.");
                 },
                 error: function (responseObject2, error) {
