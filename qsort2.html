@@ -25,7 +25,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
     <script type="text/javascript" src="jquery-1.10.2.min.js"></script>
     <script type="text/javascript" src="jquery.pep.min.js"></script>
     <script type="text/javascript" src="lodash.js"></script>
-<!--   <script type="text/javascript" src="screenlog.min.js"></script>-->
+    <!--   <script type="text/javascript" src="screenlog.min.js"></script>-->
     <script type="text/javascript" src="http://www.parsecdn.com/js/parse-latest.js"></script>
 
 
@@ -1857,7 +1857,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
             var name = localStorage.getItem("respondentName");
             var response2 = localStorage.getItem("resultsAsString");
 
-            
+
             // alert(name);
 
 
@@ -1865,9 +1865,9 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
 
             var ResponseObject5 = Parse.Object.extend("ResponseObject5");
             var responseObject5 = new ResponseObject5();
-            
+
             // alert(name);
-            
+
             responseObject5.save({
                 // respondent: name,
                 respondent: name,
@@ -1879,7 +1879,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                     alert("ありがとうございました！ Please wait for the other students to finish.");
                     $("#finishButton, #textDiv").hide();
                 },
-                error: function (responseObject2, error) {
+                error: function (responseObject5, error) {
                     // $(".error").show();
                     console.log("error");
                     alert("エラーが発生しました！ Please try tapping the button twice again.");
