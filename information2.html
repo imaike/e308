@@ -254,7 +254,10 @@
                         <span></span>
                         <h2> Please enter your family name and given name in the box below (in English). Then tap the blue button below</h2>
 
-                        <input type="text" onsubmit="return false" name="respondentName" id="nameInput">
+                        <form>
+                            <input type="text" onsubmit="navigate()" name="respondentName" id="nameInput">
+                            <input type="submit" value="Submit">
+                        </form>
 
                         <br>
                         <br>
@@ -361,10 +364,12 @@
                 // console.log(respondentName);
             });
 
+            function navigate() {
+                $('nav a:nth-child(0)').trigger('touchstart');
+            }
 
 
-
-            // stay standalone
+            // stay standalone 
             //https://github.com/mrmoses/jQuery.stayInWebApp
             (function ($) {
                 $.extend({
