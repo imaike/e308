@@ -1858,7 +1858,7 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
             var response = localStorage.getItem("resultsAsString");
 
             // alert(name);
-            // alert("response");
+            alert(response);
 
 
             Parse.initialize("8XuMz0rYKKqj4xNQtfHecoGA0PlKZiGdzJcGQhAz", "0CyAT0n5aZGxf18AhvLikt8PkVk2WJ30D9DkcwhI");
@@ -1873,8 +1873,8 @@ THIS SOFTWARE IS PROVIDED BY THE COPYRIGHT HOLDERS AND CONTRIBUTORS 'AS IS' AND 
                 success: function (responseObject5) {
                     // $(".success").show();
                     console.log("success");
-                    $("#finishButton, #textDiv").hide();
                     alert("ありがとうございました！ Please wait for the other students to finish.");
+                    $("#finishButton, #textDiv").hide();
                 },
                 error: function (responseObject2, error) {
                     // $(".error").show();
