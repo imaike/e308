@@ -214,8 +214,15 @@
         }
         
         input {
+            margin-left: 50px;
             width: 350px;
             font-size: 25px;
+        }
+        
+        #nameButton {
+            margin-left: 50px;
+            font-size: 25px;
+            height: auto;
         }
         /* changes the color of the a links */
         /*
@@ -252,11 +259,11 @@
                     <div id="infoText">
 
                         <span></span>
-                        <h2> Please enter your family name and given name in the box below (in English). Then tap the blue button below</h2>
+                        <h2> Please enter your family name and given name in the box below (in English). Then tap the button to start the survey</h2>
 
-                        <form>
-                            <input type="text" onsubmit="navigate()" name="respondentName" id="nameInput">
-                            <input type="submit" value="Submit">
+                        <form onsubmit="return false;">
+                            <input type="text" name="respondentName" id="nameInput">
+                            <input type="button" id="nameButton" value="Go">
                         </form>
 
                         <br>
@@ -288,6 +295,8 @@
 
     <script type="text/javascript">
         $(document).ready(function () {
+
+            $("nav").hide();
 
             localStorage.setItem("state1", "We should get a new Prime Minister who is more peaceful towards the Islamic State");
             localStorage.setItem("state2", "We should more strictly limit the countries that Japanese people can visit");
@@ -364,9 +373,15 @@
                 // console.log(respondentName);
             });
 
-            function navigate() {
+            $("#nameButton").on("click", function () {
+                console.log("nav click");
                 $('nav a:nth-child(0)').trigger('touchstart');
-            }
+            });
+
+            function navigate() {
+                console.log("nav click");
+                $('nav a:nth-child(0)').trigger('touchstart');
+            };
 
 
             // stay standalone 
@@ -390,9 +405,6 @@
             // $(function() { $.stayInWebApp('a.stay');});
             // end stay standalone
         });
-    </script>
-
-    <script>
     </script>
 
 </body>
