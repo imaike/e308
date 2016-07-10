@@ -259,7 +259,7 @@
                     <div id="infoText">
 
                         <span></span>
-                        <h2> Please enter your family name and given name in the box below (in English). Then tap the "Go" button, then the blue button at the bottom of the page to start the survey</h2>
+                        <h2> Please enter your family name and given name in the box below (in English). Then tap the "Go" button and the blue button at the bottom of the page to start the survey</h2>
 
                         <form onsubmit="return false;">
                             <input type="text" name="respondentName" id="nameInput">
@@ -331,11 +331,9 @@
 
 
             // Check to see if visitor is using an iPad
-            // checkDevice();
+            checkDevice();
 
             // Check to see if Web App is saved to Homescreen
-
-
             function checkDevice() {
                 var isiPad = navigator.userAgent.match(/iPad/i) != null;
                 console.log(isiPad);
@@ -357,15 +355,6 @@
                     $("#delayContainer").fadeIn(500);
                 };
             };
-
-
-
-            //            $("#nameInput").on("change", function () {
-            //                var name = $(nameInput).val();
-            //                localStorage.setItem("respondentName", name);
-            //                console.log(name);
-            //            });
-
 
             $('form input, form textarea').on('input propertychange change', function () {
                 var respondentName = $("#nameInput").val();
